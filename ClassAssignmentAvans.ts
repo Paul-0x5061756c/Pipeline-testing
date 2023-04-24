@@ -1,6 +1,6 @@
 export class ClassAssignmentAvans {
   private sayBonjour(): string {
-    return "Bonjour"
+    return "Bonjour!"
   } 
   public ShippingCosts(
     calculateShippingCosts: boolean,
