@@ -1,4 +1,7 @@
 export class ClassAssignmentAvans {
+  private sayBonjour(): string {
+    return "Bonjour"
+  } 
   public ShippingCosts(
     calculateShippingCosts: boolean,
     typeOfShippingCosts: string,
