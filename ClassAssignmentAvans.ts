@@ -4,6 +4,7 @@ export class ClassAssignmentAvans {
     typeOfShippingCosts: string,
     totalPrice: number
   ): number {
+
     let result = 0;
     if (calculateShippingCosts === true) {
       if (totalPrice > 1500) {
