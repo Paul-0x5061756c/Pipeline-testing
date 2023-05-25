@@ -4,6 +4,7 @@ export class ClassAssignmentAvans {
     typeOfShippingCosts: string,
     totalPrice: number
   ): number {
+    if (typeof calculateShippingCosts !== "boolean" || typeof typeOfShippingCosts !== "string" || typeof totalPrice !== "number") throw Error("Invalid parameter type")
     let result = 0;
     if (calculateShippingCosts === true) {
       if (totalPrice > 1500) {

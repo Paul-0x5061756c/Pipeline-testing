@@ -49,4 +49,27 @@ describe("ShippingCosts", () => {
     );
     expect(result).toEqual(0);
   });
+
+  it("should throw error when invalid type for parameter calculateShippingCosts is given", () => {
+    expect(() => {
+      // @ts-expect-error:
+      classAssignmentAvans.ShippingCosts("invalidType", "Ground", 1000)
+    }).toThrow("Invalid parameter type")
+
+  });
+  it("should throw error when invalid type for parameter typeOfShippingCosts is given", () => {
+    expect(() => {
+      // @ts-expect-error:
+      classAssignmentAvans.ShippingCosts(true, 123, 1000);
+    }).toThrow("Invalid parameter type")
+
+  });
+  it("should throw error when invalid type for parameter totalPrice is given", () => {
+    expect(() => {
+      // @ts-expect-error:
+      classAssignmentAvans.ShippingCosts(true, "Ground", "invalidType")
+    }).toThrow("Invalid parameter type")
+
+  });
+
 });
