@@ -39,4 +39,4 @@ jobs:
         run: |
           wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
           tar -xzf SoapUI-5.6.0-linux-bin.tar.gz
-          ./SoapUI-5.6.0/bin/testrunner.sh -s"API-Testing" -r -a "./test/API-Testing-Avans-soapui-project.xml"
+          ./SoapUI-5.6.0/bin/testrunner.sh -s"API-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
