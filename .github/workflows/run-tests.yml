@@ -37,4 +37,6 @@ jobs:
 
       - name: Run SoapUI Tests
         run: |
-          -s"API-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
+          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
+          tar -xzf SoapUI-5.6.0-linux-bin.tar.gz
+          ./SoapUI-5.6.0/bin/testrunner.sh -s"API-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
