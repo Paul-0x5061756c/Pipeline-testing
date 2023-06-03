@@ -1,6 +1,6 @@
 name: Run Tests with ts-node
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   unit-test:
