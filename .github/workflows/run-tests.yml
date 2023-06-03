@@ -37,8 +37,8 @@ jobs:
 
       - name: Run SoapUI Tests
         run: |
-          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
-          tar -xzf SoapUI-5.6.0-linux-bin.tar.gz
+          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.7.0/SoapUI-5.7.0-linux-bin.tar.gz
+          tar -xzf SoapUI-5.7.0-linux-bin.tar.gz
           ./SoapUI-5.6.0/bin/testrunner.sh -s"API-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
 
   api-performance-test:
@@ -56,6 +56,6 @@ jobs:
 
       - name: Run Load Tests
         run: |
-          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
-          tar -xzf SoapUI-5.6.0-linux-bin.tar.gz
-          ./SoapUI-5.6.0/bin/loadtestrunner.sh -s "API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
+          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.7.0/SoapUI-5.7.0-linux-bin.tar.gz
+          tar -xzf SoapUI-5.7.0-linux-bin.tar.gz
+          ./SoapUI-5.7.0/bin/loadtestrunner.sh -s "API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
