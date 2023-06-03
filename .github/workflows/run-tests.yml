@@ -54,7 +54,8 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
-      - name: Run SoapUI Tests
-        run: wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
+      - name: Run Load Tests
+        run: |
+          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
           tar -xzf SoapUI-5.6.0-linux-bin.tar.gz
-          ./SoapUI-5.6.0/bin/loadtestrunner.sh -s"API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
+          ./SoapUI-5.6.0/bin/loadtestrunner.sh -s "API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
