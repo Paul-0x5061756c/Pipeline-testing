@@ -1,6 +1,6 @@
 name: Run Tests with ts-node
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   unit-test:
@@ -37,6 +37,25 @@ jobs:
 
       - name: Run SoapUI Tests
         run: |
-          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.6.0/SoapUI-5.6.0-linux-bin.tar.gz
-          tar -xzf SoapUI-5.6.0-linux-bin.tar.gz
-          ./SoapUI-5.6.0/bin/testrunner.sh -s"API-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
+          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.7.0/SoapUI-5.7.0-linux-bin.tar.gz
+          tar -xzf SoapUI-5.7.0-linux-bin.tar.gz
+          ./SoapUI-5.7.0/bin/testrunner.sh -s"API-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
+
+  api-performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Run Load Tests
+        run: |
+          wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.7.0/SoapUI-5.7.0-linux-bin.tar.gz
+          tar -xzf SoapUI-5.7.0-linux-bin.tar.gz
+          ./SoapUI-5.7.0/bin/loadtestrunner.sh -s "API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
