@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run": "cypress run --env TERM=xterm,webshopUrl=http://demowebshop.tricentis.com,webshopUsername=bartjan270903@gmail.com,webshopPassword=8Gq7dVAs",
+    "cy:run": "cypress run"
   },
   "keywords": [],
   "author": "",
