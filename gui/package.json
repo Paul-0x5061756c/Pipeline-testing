@@ -1,0 +1,20 @@
+{
+  "name": "tricentis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run --env TERM=xterm,webshopUrl=http://demowebshop.tricentis.com,webshopUsername=bartjan270903@gmail.com,webshopPassword=8Gq7dVAs",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.13.0",
+    "cypress-mochawesome-reporter": "^3.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.1.4"
+  }
+}

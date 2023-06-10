@@ -1,0 +1,30 @@
+{
+    "product_sets": [
+        {
+            "url": "/cell-phones",
+            "products": [
+                {
+                    "id": 43,
+                    "url": "/smartphone"
+                },
+                {
+                    "id": 15,
+                    "url": "/used-phone"
+                }
+            ]
+        },
+        {
+            "url": "/apparel-shoes",
+            "products": [
+                {
+                    "id": 36,
+                    "url": "/blue-jeans"
+                },
+                {
+                    "id": 40,
+                    "url": "/casual-belt"
+                }
+            ]
+        }
+    ]
+}
