@@ -94,6 +94,7 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run-script cy:run
+        working-directory: ./gui
 
       - name: Publish test artifacts
         uses: actions/upload-artifact@v2
