@@ -58,4 +58,49 @@ jobs:
         run: |
           wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.7.0/SoapUI-5.7.0-linux-bin.tar.gz
           tar -xzf SoapUI-5.7.0-linux-bin.tar.gz
-          ./SoapUI-5.7.0/bin/loadtestrunner.sh -s "API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"
+          ./SoapUI-5.7.0/bin/loadtestrunner.sh -s "API-Performance-Testing" -r "./test/API-Testing-Avans-soapui-project.xml"          
+
+  GUI_test_demowebshop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Cache NPM packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: npm-${{ runner.os }}-
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: cypress-${{ runner.os }}-
+
+      - name: Install NPM dependencies
+        run: npm ci
+        working-directory: ./gui
+
+      - name: Install reporter
+        run: npm install cypress-mochawesome-reporter junit-report-merger mocha-junit-reporter cypress-multi-reporters mocha
+        working-directory: ./gui
+
+      - name: Run Cypress tests
+        run: npm run-script cy:run
+        working-directory: ./gui
+
+      - name: Publish test artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: GUItest artifacts
+          path: |
+            cypress/videos
