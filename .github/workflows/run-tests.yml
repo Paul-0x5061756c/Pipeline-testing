@@ -65,15 +65,18 @@ jobs:
 
     steps:
       - name: Checkout repository
+        working-directory: ./gui
         uses: actions/checkout@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
+        working-directory: ./gui
         with:
-          node-version: '12.x'
+          node-version: '18.x'
 
       - name: Cache NPM packages
         uses: actions/cache@v2
+        working-directory: ./gui
         with:
           path: ~/.npm
           key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -81,6 +84,7 @@ jobs:
 
       - name: Cache Cypress binary
         uses: actions/cache@v2
+        working-directory: ./gui
         with:
           path: ~/.cache/Cypress
           key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -88,9 +92,11 @@ jobs:
 
       - name: Install NPM dependencies
         run: npm ci
+        working-directory: ./gui
 
       - name: Install reporter
         run: npm install cypress-mochawesome-reporter junit-report-merger mocha-junit-reporter cypress-multi-reporters mocha
+        working-directory: ./gui
 
       - name: Run Cypress tests
         run: npm run-script cy:run
