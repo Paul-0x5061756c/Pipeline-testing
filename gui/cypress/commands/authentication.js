@@ -18,8 +18,8 @@ Cypress.Commands.add('login', (email, password, { rememberUser = false } = {}) =
     log.snapshot("before");
 
 
-    cy.get('#Email').type("bartjan270903@gmail.com");
-    cy.get('#Password').type("8Gq7dVAs");
+    cy.get('#Email').type(email || "bartjan270903@gmail.com");
+    cy.get('#Password').type(password || "8Gq7dVAs");
 
     if (rememberUser) {
         cy.get("#RememberMe").check();
